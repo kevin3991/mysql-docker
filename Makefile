@@ -1,4 +1,17 @@
-db-build:
-	docker build -t local-mysql .
-db-run:
-	docker run -d -p 3306:3306 --name mysql local-mysql
+build:
+	docker-compose build
+
+run:
+	docker-compose up -d
+
+stop:
+	docker-compose down
+
+clean:
+	docker-compose down -v
+
+logs:
+	docker-compose logs -f mysql
+
+restart:
+	docker-compose restart mysql

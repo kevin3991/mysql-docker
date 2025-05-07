@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-dev
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: kevin3991
+      MYSQL_PASSWORD: kevin3991
+      # 如果你想自動建立一個 DB，就填這個，不需要就留空或註解掉
+      # MYSQL_DATABASE: my_database
+    volumes:
+      - local_mysql_data:/var/lib/mysql
+
+volumes:
+  local_mysql_data:
